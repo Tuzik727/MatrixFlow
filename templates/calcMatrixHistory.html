@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Matrix Data</title>
+	    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+</head>
+<body>
+	<h1>User Matrix Data</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Rows</th>
+				<th>Columns</th>
+				<th>Value</th>
+				<th>Operation</th>
+                <th>MatrixID</th>
+				<th>Date Created</th>
+				<th>UserID</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for date, row in sorted_data %}
+				<tr>
+					<td>{{ row["Rows"] }}</td>
+					<td>{{ row["Column"] }}</td>
+					<td>{{ row["Value"] }}</td>
+					<td>{{ row["Operation"] }}</td>
+                    <td>{{ row["MatrixID"]}}</td>
+                    <td>{{ row["DateCreated"]}}</td>
+                    <td>{{ row["UserID"]}}</td>
+                </tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+<button onclick="history.back()">Go Back</button>
+
+
+</html>

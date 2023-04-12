@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Display</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+  </head>
+  <body>
+    {% for id, system in data.items() %}
+      <p>System Name: {{ system['SystemName'] }}</p>
+      <p>Date Created: {{ system['DateCreated'] }}</p>
+      <p>User ID: {{ system['UserID'] }}</p>
+
+      {% for equation in equations %}
+        {% if id in equation %}
+          <p>Equation String: {{ equation[id]['EquationString'] }}</p>
+        {% endif %}
+      {% endfor %}
+      {% for solution in solutions %}
+        {% if id in solution %}
+          <p>{{ solution[id]['SolutionString'] }}</p>
+        {% endif %}
+      {% endfor %}
+    <hr>
+    {% endfor %}
+  </body>
+<button onclick="history.back()">Go Back</button>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+</head>
+<body>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('register') }}">
+        <label>Username:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label>Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <label>Email:</label>
+        <input type="text" name="email" required>
+        <br>
+        <label>Confirm Password:</label>
+        <input type="password" name="confirm_password" required>
+        <br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+</head>
+<body>
+    <h2>Matrix created successfully:</h2>
+    <table>
+    {% for row in matrix %}
+        <tr>
+        {% for value in row %}
+            <td>{{ value }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    <br>
+<button onclick="history.back()">Go Back</button>
+
+</html>

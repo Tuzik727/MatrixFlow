@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+</head>
+<body>
+
+<h2>Create a matrix which would be multiplied</h2>
+<form method="POST" action="{{ url_for('multiply_matrix') }}">
+    <label id="Nrows" for="Nrows">Number of rows:</label>
+    <input type="number" id="add_rows" name="rows" required min="1"><br>
+    <label id="Ncols" for="Ncols">Number of columns:</label>
+    <input type="number" id="add_cols" name="cols" required min="1"><br>
+    <label id= "labelData" for="labelData">Matrix values:</label>
+    <textarea id="add_data" name="data" rows="5" cols="50"></textarea><br>
+    <button type="submit">Create</button>
+</form>
+{% if multiply_matrix %}
+    <h2>Matrix added successfully:</h2>
+    <table>
+    {% for row in multiply_matrix %}
+        <tr>
+        {% for value in row %}
+            <td>{{ value }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    <br>
+
+{% endif %}
+<button onclick="history.back()">Go Back</button>
+
+</body>
+</html>

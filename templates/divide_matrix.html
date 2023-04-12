@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+</head>
+<body>
+
+<h2>Create a matrix which would be divided</h2>
+<form method="POST" action="{{ url_for('divide_matrix') }}">
+    <label id="rows" for="rows">Divisor:</label>
+    <input type="number" id="divisor" name="divisor"><br>
+    <button type="submit">Divide</button>
+</form>
+{% if divide_matrix %}
+    <h2>Matrix divided successfully:</h2>
+    <table>
+    {% for row in divide_matrix %}
+        <tr>
+        {% for value in row %}
+            <td>{{ value }}</td>
+        {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+    <br>
+
+{% endif %}
+<button onclick="history.back()">Go Back</button>
+
+</body>
+</html>

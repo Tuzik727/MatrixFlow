@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MatrixUI Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <h1>MatrixUI Home</h1>
+
+    <h2>Create a matrix</h2>
+    <form method="POST" action="{{ url_for('home') }}">
+        <label for="rows">Number of rows:</label>
+        <input type="number" id="rows" name="rows" required min="1"><br>
+        <label for="cols">Number of columns:</label>
+        <input type="number" id="cols" name="cols" required min="1"><br>
+        <label for="data">Matrix values:</label>
+        <textarea id="data" name="data" rows="5" cols="50"></textarea><br>
+        <button type="submit">Create</button>
+    </form>
+
+    {% if matrix %}
+        <h2>Matrix Operations</h2>
+        <ul>
+            <li><a href="{{ url_for('display_matrix') }}">Display matrix</a></li>
+            <li><a href="{{ url_for('display_shape') }}">Show matrix shape</a></li>
+            <li><a href="{{ url_for('display_rank') }}">Calculate rank of matrix</a></li>
+            <li><a href="{{ url_for('display_inverse') }}">Calculate inverse matrix</a></li>
+            <li><a href="{{ url_for('display_transpose') }}">Show transpose matrix</a></li>
+            <li><a href="{{ url_for('matrix_operation', operation='add') }}">Add matrices</a></li>
+            <li><a href="{{ url_for('matrix_operation', operation='subtract') }}">Subtract matrices</a></li>
+            <li><a href="{{ url_for('matrix_operation', operation='multiply') }}">Multiply matrices</a></li>
+            <li><a href="{{ url_for('matrix_operation', operation='divide') }}">Divide matrix</a></li>
+            <li><a href="{{ url_for('matrix_operation', operation='power') }}">Matrix Power</a></li>
+            <li><a href="{{ url_for('display_determinant') }}">Calculate matrix Determinant</a></li>
+            <li><a href="{{ url_for('argmax') }}">Find max value in matrix</a></li>
+            <li><a href="{{ url_for('zeros') }}">Reset matrix</a></li>
+            <li><a href="{{ url_for('identity') }}">Reset matrix</a></li>
+
+        </ul>
+        <h3>Matrix Shape: {{ shape_str }}</h3>
+        <h3>Matrix Rank: {{ rank }}</h3>
+        <h3>Matrix Determinant: {{ determinate }}</h3>
+        <h3>Max Matrix index: {{max_inx}}</h3>
+        <h3>Max Matrix value: {{max_val}}</h3>
+        <form method="POST" action="{{ url_for('logout') }}">
+            <button type="submit">Logout</button>
+        </form>
+        <h2>Solve a System of Linear Equations</h2>
+        <p><a href="{{ url_for('linear_system') }}">Click here</a> to enter the coefficients of the linear equations and solve the system.</p>
+        <form method="POST" action="{{ url_for('history') }}">
+            <button type="submit">History</button>
+        </form>
+    {% endif %}
+</body>
+</html>

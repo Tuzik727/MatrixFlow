@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linear equation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+
+    <h1>System of Equations Solver</h1>
+    <form method="POST">
+      <label for="equations">Enter equations:</label>
+      <textarea id="equations" name="equations" rows="5" cols="50"></textarea><br>
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+    {% if solution %}
+      <h2>Solution:</h2>
+      <p>x = {{ solution.x }}</p>
+      <p>y = {{ solution.y }}</p>
+      <p>z = {{ solution.z }}</p>
+      <p>w = {{ solution.w }}</p>
+    {% endif %}
+
+<button onclick="history.back()">Go Back</button>
+<body>
+
+</body>
+</html>
