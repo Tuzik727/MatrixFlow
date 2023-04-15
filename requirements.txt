@@ -1,0 +1,6 @@
+TO RUN THAT APPLICATION YOU WILL NEED:
+
+- python
+- pip
+
+next information in README!!.txt

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+</head>
+<body>
+
+<h2>Create a matrix which would be added</h2>
+<form method="POST" action="{{ url_for('add_matrix') }}">
+    <label id="rows" for="rows">Number of rows:</label>
+    <input type="number" id="add_rows" name="rows" required min="1"><br>
+    <label id="cols" for="cols">Number of columns:</label>
+    <input type="number" id="add_cols" name="cols" required min="1"><br>
+    <label id="data" for="data">Matrix values:</label>
+    <textarea id="add_data" name="data" rows="5" cols="50"></textarea><br>
+    <button type="submit">Create</button>
+</form>
+{% if added_matrix %}
+<h2 style="text-align: center;">Matrix added successfully:</h2>
+<table style="margin: 0 auto;">
+    {% for row in added_matrix %}
+    <tr>
+        {% for value in row %}
+        <td>{{ value }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+<br>
+{% endif %}
+
+<button onclick="history.back()">Go Back</button>
+</body>
+</html>

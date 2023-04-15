@@ -1,0 +1,7 @@
+{
+  "db_driver": "Driver={SQL Server};",
+  "db_server": "SERVER=193.85.203.188;",
+  "db_name": "DATABASE=butym;",
+  "db_user": "UID=butym;",
+  "db_password": "PWD=7z124aow"
+}

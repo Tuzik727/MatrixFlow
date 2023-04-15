@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Matrix Data</title>
+	    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+</head>
+<body>
+	<h1>User Matrix Data</h1>
+	{% for id, data in sorted_data %}
+	<p>Rows:{{data['_Rows']}}</p>
+	<p>Cols:{{data['_Column']}}</p>
+	<p>Matrix:{{data['_value']}}</p>
+	<p>DateCreated:{{data['DateCreated']}}</p>
+	<hr>
+    {% endfor %}
+
+
+</body>
+<button onclick="history.back()">Go Back</button>
+
+
+</html>
